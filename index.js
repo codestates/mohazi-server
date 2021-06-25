@@ -4,15 +4,15 @@ const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
 
-const usersRouter = require("./routes/users");
-const cardsRouter = require("./routes/cards");
-const selectionsRouter = require("./routes/selections");
+// const usersRouter = require("./routes/users");
+// const cardsRouter = require("./routes/cards");
+// const selectionsRouter = require("./routes/selections");
 
-require('./models');
+// require('./models');
 
 const app = express();
 app.use(express.json());
-const port = 4000;
+const port = 80;
 
 //express-session 설정
 app.use(
@@ -41,21 +41,21 @@ app.use(
 );
 
 //router 연결 - users
-app.use("/login", usersRouter);
-app.use("/logout", usersRouter);
-app.use("/signup", usersRouter);
-app.use("/userdelete", usersRouter);
-app.use("/usersearch", usersRouter);
-app.use("/userupdate", usersRouter);
-// cards
-app.use("/createcard", cardsRouter);
-app.use("/dailycarddelete", cardsRouter);
-app.use("/dailycardinfo", cardsRouter);
-app.use("/dailycardupdate", cardsRouter);
-app.use("/mypage", cardsRouter);
-// selections
-app.use("/itemtype", selectionsRouter);
-app.use("/selectionupdate", selectionsRouter);
+// app.use("/login", usersRouter);
+// app.use("/logout", usersRouter);
+// app.use("/signup", usersRouter);
+// app.use("/userdelete", usersRouter);
+// app.use("/usersearch", usersRouter);
+// app.use("/userupdate", usersRouter);
+// // cards
+// app.use("/createcard", cardsRouter);
+// app.use("/dailycarddelete", cardsRouter);
+// app.use("/dailycardinfo", cardsRouter);
+// app.use("/dailycardupdate", cardsRouter);
+// app.use("/mypage", cardsRouter);
+// // selections
+// app.use("/itemtype", selectionsRouter);
+// app.use("/selectionupdate", selectionsRouter);
 
 //https-server
 const server = https
@@ -67,7 +67,7 @@ const server = https
     app
   )
   .listen(port, () => {
-    console.log(`server listen in ${port}`);
+    console.log(`🚀 server listen in ${port}`);
   });
 
 module.exports = server;
