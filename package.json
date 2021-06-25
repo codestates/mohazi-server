@@ -1,14 +1,14 @@
 {
   "name": "mohazi-server",
   "version": "1.0.0",
-  "description": "MOHAZI Server",
+  "description": "mohazi Server",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codestates/MOHAZI-server.git"
+    "url": "git+https://github.com/codestates/mohazi-server.git"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +18,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "jsonwebtoken": "8.5.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
