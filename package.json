@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/codestates/mohazi-server.git"
   },
-  "author": "",
+  "author": "mohazi",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
@@ -29,11 +29,10 @@
     "sharp": "^0.28.3"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
     "nodemon": "^2.0.6"
   },
   "bugs": {
-    "url": "https://github.com/codestates/MOHAZI-server/issues"
+    "url": "https://github.com/codestates/mohazi-server/issues"
   },
-  "homepage": "https://github.com/codestates/MOHAZI-server#readme"
+  "homepage": "https://github.com/codestates/mohazi-server#readme"
 }

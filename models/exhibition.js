@@ -14,18 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   exhibition.init({
-    name: DataTypes.STRING,
-    type: DataTypes.STRING,
-    address: DataTypes.STRING,
-    locationX: DataTypes.INTEGER,
-    locationY: DataTypes.INTEGER,
-    phone: DataTypes.STRING,
-    runtime: DataTypes.STRING,
-    description: DataTypes.STRING,
-    fee: DataTypes.BOOLEAN,
-    subway: DataTypes.STRING,
-    bus: DataTypes.STRING,
-    img: DataTypes.STRING
+    FAC_NAME: DataTypes.STRING,
+    SUBJCODE: DataTypes.STRING,
+    ADDR: DataTypes.STRING,
+    X_COORD: DataTypes.INTEGER,
+    Y_COORD: DataTypes.INTEGER,
+    PHNE: DataTypes.STRING,
+    CLOSEDAY: DataTypes.STRING,
+    FAC_DESC: DataTypes.STRING,
+    ENTRFREE: DataTypes.BOOLEAN,
+    SUBWAY: DataTypes.STRING,
+    BUSSTOP: DataTypes.STRING,
+    MAIN_IMG: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'exhibition',

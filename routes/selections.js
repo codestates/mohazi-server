@@ -1,9 +1,9 @@
-// var express = require('express');
-// var router = express.Router();
+var express = require('express');
+var router = express.Router();
 
-// const { selectionsController } = require('../controllers');
+const { selectionsController } = require('../controllers');
 
-// router.get("/itemtype", selectionsController.ItemType.get);
+router.get("/cafelists", selectionsController.CafeLists.get);
 // router.patch("/selectionupdate", selectionsController.SelectionUpdate.patch);
 
-// module.exports = router;
+module.exports = router;

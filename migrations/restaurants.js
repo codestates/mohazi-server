@@ -8,19 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      BPLCNM: {
         type: Sequelize.STRING
       },
-      status: {
+      DTLSTATENM: {
         type: Sequelize.STRING
       },
-      phone: {
+      SITETEL: {
         type: Sequelize.STRING
       },
-      address: {
+      RDNWHLADDR: {
         type: Sequelize.STRING
       },
-      address_number: {
+      RDNPOSTNO: {
         type: Sequelize.INTEGER
       },
       createdAt: {

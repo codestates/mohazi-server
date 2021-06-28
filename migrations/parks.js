@@ -8,22 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      P_PARK: {
         type: Sequelize.STRING
       },
-      way: {
+      VISIT_ROAD: {
         type: Sequelize.STRING
       },
-      phone: {
+      P_ADMINTEL: {
         type: Sequelize.STRING
       },
-      address: {
+      P_ADDR: {
         type: Sequelize.STRING
       },
-      refer: {
+      USE_REFER: {
         type: Sequelize.STRING
       },
-      img: {
+      P_IMG: {
         type: Sequelize.STRING
       },
       createdAt: {
