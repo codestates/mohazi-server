@@ -6,13 +6,13 @@ const fs = require("fs");
 
 // const usersRouter = require("./routes/users");
 // const cardsRouter = require("./routes/cards");
-// const selectionsRouter = require("./routes/selections");
+const selectionsRouter = require("./routes/selections");
 
-// require('./models');
+require('./models');
 
 const app = express();
 app.use(express.json());
-const port = 80;
+const port = 4000;
 
 //express-session 설정
 app.use(
@@ -53,8 +53,8 @@ app.use(
 // app.use("/dailycardinfo", cardsRouter);
 // app.use("/dailycardupdate", cardsRouter);
 // app.use("/mypage", cardsRouter);
-// // selections
-// app.use("/itemtype", selectionsRouter);
+// selections
+app.use("/cafelists", selectionsRouter);
 // app.use("/selectionupdate", selectionsRouter);
 
 //https-server
@@ -67,7 +67,7 @@ const server = https
     app
   )
   .listen(port, () => {
-    console.log(`🚀 server listen in ${port}`);
+    console.log(`🚀 ${port}번 포트로 서버가 연결됐습니다.`);
   });
 
 module.exports = server;

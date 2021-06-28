@@ -8,40 +8,40 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      FAC_NAME: {
         type: Sequelize.STRING
       },
-      type: {
+      SUBJCODE: {
         type: Sequelize.STRING
       },
-      address: {
+      ADDR: {
         type: Sequelize.STRING
       },
-      locationX: {
+      X_COORD: {
         type: Sequelize.INTEGER
       },
-      locationY: {
+      Y_COORD: {
         type: Sequelize.INTEGER
       },
-      phone: {
+      PHNE: {
         type: Sequelize.STRING
       },
-      runtime: {
+      CLOSEDAY: {
         type: Sequelize.STRING
       },
-      description: {
+      FAC_DESC: {
         type: Sequelize.STRING
       },
-      fee: {
+      ENTRFREE: {
         type: Sequelize.BOOLEAN
       },
-      subway: {
+      SUBWAY: {
         type: Sequelize.STRING
       },
-      bus: {
+      BUSSTOP: {
         type: Sequelize.STRING
       },
-      img: {
+      MAIN_IMG: {
         type: Sequelize.STRING
       },
       createdAt: {

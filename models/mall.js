@@ -14,11 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   mall.init({
-    name: DataTypes.STRING,
-    status: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    address: DataTypes.STRING,
-    address_number: DataTypes.INTEGER
+    BPLCNM: DataTypes.STRING,
+    DTLSTATENM: DataTypes.STRING,
+    SITETEL: DataTypes.STRING,
+    RDNWHLADDR: DataTypes.STRING,
+    RDNPOSTNO: DataTypes.INTEGER,
+    UPTAENM: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'mall',
