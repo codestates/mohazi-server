@@ -55,6 +55,10 @@ app.use(
 // app.use("/mypage", cardsRouter);
 // selections
 app.use("/cafelists", selectionsRouter);
+app.use("/parklists", selectionsRouter);
+app.use("/exhibitionlists", selectionsRouter);
+app.use("/malllists", selectionsRouter);
+app.use("/restaurantlists", selectionsRouter)
 // app.use("/selectionupdate", selectionsRouter);
 
 //https-server
