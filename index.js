@@ -4,7 +4,7 @@ const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
 
-// const usersRouter = require("./routes/users");
+const usersRouter = require("./routes/users");
 // const cardsRouter = require("./routes/cards");
 const selectionsRouter = require("./routes/selections");
 
@@ -41,8 +41,8 @@ app.use(
 );
 
 //router 연결 - users
-// app.use("/", usersRouter);
-// // cards
+app.use("/", usersRouter);
+// cards
 // app.use("/", cardsRouter);
 // selections
 app.use("/", selectionsRouter);
