@@ -1,46 +1,40 @@
+const { restaurant } = require("../../models");
 const axios = require("axios");
-const data = "";
 
 const config = {
   method: "get",
-  url: "http://openapi.seoul.go.kr:8088/56434e586b686f6f3430704653486e/json/LOCALDATA_072404/1/450/",
-  headers: {},
-  data: data,
+  url: "http://openapi.seoul.go.kr:8088/56434e586b686f6f3430704653486e/json/LOCALDATA_072404/1/800/",
+  headers: {
+    "Content-Type": "application/json",
+  },
 };
 
 module.exports = async (req, res) => {
-  console.log(req);
   await axios(config)
-    .then(function (response) {
-      for (i in response["data"]["LOCALDATA_072404"]["row"]) {
-        console.log("***********************");
-        console.log("***********************");
-        console.log(
-          "사업장명 : " +
-            response["data"]["LOCALDATA_072404"]["row"][i]["BPLCNM"]
-        );
-        console.log(
-          "상세영업상태명 : " +
-            response["data"]["LOCALDATA_072404"]["row"][i]["DTLSTATENM"]
-        );
-        console.log(
-          "전화번호 : " +
-            response["data"]["LOCALDATA_072404"]["row"][i]["SITETEL"]
-        );
-        console.log(
-          "도로명주소 : " +
-            response["data"]["LOCALDATA_072404"]["row"][i]["RDNWHLADDR"]
-        );
-        console.log(
-          "도로명우편번호 : " +
-            response["data"]["LOCALDATA_072404"]["row"][i]["RDNPOSTNO"]
-        );
-        console.log("***********************");
-        console.log("***********************");
+    .then((response) => {
+      const restaurantLists = response["data"]["LOCALDATA_072404"]["row"];
+
+      for (let i in restaurantLists) {
+        i = Math.floor(Math.random() * restaurantLists.length);
+        if (restaurantLists[i]["DTLSTATENM"] === "영업") {
+          restaurant.findOrCreate({
+            where: {
+              BPLCNM: restaurantLists[i].BPLCNM,
+              DTLSTATENM: restaurantLists[i].DTLSTATENM,
+              SITETEL: restaurantLists[i].SITETEL,
+              RDNWHLADDR: restaurantLists[i].RDNWHLADDR,
+              RDNPOSTNO: restaurantLists[i].RDNPOSTNO,
+              UPTAENM: restaurantLists[i].UPTAENM,
+            },
+          });
+          return res.status(200).send({
+            response: restaurantLists[i],
+            message: "음식점 정보를 조회했습니다.",
+          });
+        }
       }
     })
-    // .then((response) => res.status(200).send(response))
     .catch(function (error) {
-      console.log(error);
+      res.status(404).send(error);
     });
 };
