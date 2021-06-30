@@ -1,45 +1,82 @@
-const { randomCafe } = require("./CafeLists");
-const { randomExhibition } = require("./ExhibitionLists");
-const { randomMall } = require("./MallLists");
-const { randomPark } = require("./ParkLists");
-const { randomRestaurant } = require("./RestaurantLists");
-// const axios = require("axios");
-
-/**
- * 각 items를 호출해서 한 개씩 model.findOrCreate - where BPLCNM: req.body.response.BPLCNM, ...
- * 그렇다면 최초엔 아무런 DB도 없을 것 -> 
- */
+const { cafe, exhibition, mall, park, restaurant } = require("../../models");
+const { Op } = require("sequelize");
 
 module.exports = {
-  //   await
-  // axios({
-  //   method: "get",
-  //   url: "https://localhost:4000/landing",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   withCredentials: true,
-  // })
-  get:
-  async (req, res) => {
-    console
-      .log(req)
-      .then((response) => {
-        // console.log(response)
-        console.log(
-          "목록들 : " +
-            JSON.stringify([
-              { randomCafe },
-              { randomExhibition },
-              { randomMall },
-              { randomPark },
-              { randomRestaurant },
-            ])
-        );
-        // res.status(200).send({
-        //   recommendations: [{ randomCafe }, { randomExhibition }, { randomMall }, { randomPark }, { randomRestaurant }],
-        // });
+  get: async (req, res) => {
+    await cafe
+      .findAll({
+        where: {
+          id: {
+            [Op.gte]: 1,
+          },
+        },
       })
-      .catch((err) => res.status(400).send({ err: "err" }));
-  }
+      .then((cafe) => {
+        exhibition
+          .findAll({
+            where: {
+              id: {
+                [Op.gte]: 1,
+              },
+            },
+          })
+          .then((exhibition) => {
+            mall
+              .findAll({
+                where: {
+                  id: {
+                    [Op.gte]: 1,
+                  },
+                },
+              })
+              .then((mall) => {
+                park
+                  .findAll({
+                    where: {
+                      id: {
+                        [Op.gte]: 1,
+                      },
+                    },
+                  })
+                  .then((park) => {
+                    restaurant
+                      .findAll({
+                        where: {
+                          id: {
+                            [Op.gte]: 1,
+                          },
+                        },
+                      })
+                      .then((restaurant) => {
+                        for (let c in cafe) {
+                          c = Math.floor(Math.random() * cafe.length);
+                          for (let e in exhibition) {
+                            e = Math.floor(Math.random() * exhibition.length);
+                            for (let m in mall) {
+                              m = Math.floor(Math.random() * mall.length);
+                              for (let p in park) {
+                                p = Math.floor(Math.random() * park.length);
+                                for (let r in restaurant) {
+                                  r = Math.floor(Math.random() * restaurant.length);
+                                  return res.status(200).send({
+                                    recommendations: [
+                                      cafe[c],
+                                      exhibition[e],
+                                      mall[m],
+                                      park[p],
+                                      restaurant[r],
+                                    ],
+                                  });
+                                }
+                              }
+                            }
+                          }
+                        }
+                      });
+                  });
+              });
+          });
+      })
+      .catch((err) => res.status(400).send({ err: "data err" }));
+  },
 };
