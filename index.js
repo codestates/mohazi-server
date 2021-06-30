@@ -41,25 +41,11 @@ app.use(
 );
 
 //router 연결 - users
-// app.use("/login", usersRouter);
-// app.use("/logout", usersRouter);
-// app.use("/signup", usersRouter);
-// app.use("/userdelete", usersRouter);
-// app.use("/usersearch", usersRouter);
-// app.use("/userupdate", usersRouter);
+// app.use("/", usersRouter);
 // // cards
-// app.use("/createcard", cardsRouter);
-// app.use("/dailycarddelete", cardsRouter);
-// app.use("/dailycardinfo", cardsRouter);
-// app.use("/dailycardupdate", cardsRouter);
-// app.use("/mypage", cardsRouter);
+// app.use("/", cardsRouter);
 // selections
-app.use("/cafelists", selectionsRouter);
-app.use("/parklists", selectionsRouter);
-app.use("/exhibitionlists", selectionsRouter);
-app.use("/malllists", selectionsRouter);
-app.use("/restaurantlists", selectionsRouter)
-// app.use("/selectionupdate", selectionsRouter);
+app.use("/", selectionsRouter);
 
 //https-server
 const server = https

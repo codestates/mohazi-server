@@ -23,6 +23,9 @@ module.exports = {
       RDNPOSTNO: {
         type: Sequelize.INTEGER
       },
+      UPTAENM: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
