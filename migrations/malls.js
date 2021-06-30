@@ -23,6 +23,9 @@ module.exports = {
       RDNPOSTNO: {
         type: Sequelize.INTEGER
       },
+      UPTAENM: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -31,9 +34,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      UPTAENM: {
-        type: Sequelize.STRING
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {

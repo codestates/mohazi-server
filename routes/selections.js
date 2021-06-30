@@ -8,6 +8,7 @@ router.get("/parklists", selectionsController.ParkLists);
 router.get("/exhibitionlists", selectionsController.ExhibitionLists);
 router.get("/malllists", selectionsController.MallLists);
 router.get("/restaurantlists", selectionsController.RestaurantLists);
+router.get("/landing", selectionsController.Landing.get);
 // router.patch("/selectionupdate", selectionsController.SelectionUpdate.patch);
 
 module.exports = router;

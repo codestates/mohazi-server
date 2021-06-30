@@ -4,6 +4,7 @@ module.exports = {
   ExhibitionLists: require('./ExhibitionLists'),
   MallLists: require('./MallLists'),
   RestaurantLists: require('./RestaurantLists'),
+  Landing: require('./Landing'),
   ItemType: require('./ItemType'),
   SelectionUpdate: require('./SelectionUpdate'),
 }

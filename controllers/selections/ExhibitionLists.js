@@ -1,71 +1,43 @@
+const { exhibition } = require("../../models");
 const axios = require("axios");
-const data = "";
 
 const config = {
   method: "get",
-  url: "http://openapi.seoul.go.kr:8088/75434f6448686f6f36355149764b6d/json/culturalSpaceInfo/1/930/",
-  headers: {},
-  data: data,
+  url: "http://openapi.seoul.go.kr:8088/75434f6448686f6f36355149764b6d/json/culturalSpaceInfo/1/500/",
+  headers: {
+    "Content-Type": "application/json",
+  },
 };
 
 module.exports = async (req, res) => {
   await axios(config)
-    .then(function (response) {
-      for (i in response["data"]["culturalSpaceInfo"]["row"]) {
-        console.log("***********************");
-        console.log("***********************");
-        console.log(
-          "주제분류 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["SUBJCODE"]
-        );
-        console.log(
-          "문화시설명 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["FAC_NAME"]
-        );
-        console.log(
-          "주소 : " + response["data"]["culturalSpaceInfo"]["row"][i]["ADDR"]
-        );
-        console.log(
-          "X 좌표 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["X_COORD"]
-        );
-        console.log(
-          "Y 좌표 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["Y_COORD"]
-        );
-        console.log(
-          "전화번호 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["PHNE"]
-        );
-        console.log(
-          "휴관일 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["CLOSEDAY"]
-        );
-        console.log(
-          "대표이미지 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["MAIN_IMG"]
-        );
-        console.log(
-          "시설소개 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["FAC_DESC"]
-        );
-        console.log(
-          "무료구분 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["ENTRFREE"]
-        );
-        console.log(
-          "지하철 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["SUBWAY"]
-        );
-        console.log(
-          "버스정거장 : " +
-            response["data"]["culturalSpaceInfo"]["row"][i]["BUSSTOP"]
-        );
-        console.log("***********************");
-        console.log("***********************");
+    .then((response) => {
+      const exhibitionLists = response["data"]["culturalSpaceInfo"]["row"];
+      for (let i in exhibitionLists) {
+        i = Math.floor(Math.random() * exhibitionLists.length);
+        exhibition.findOrCreate({
+          where: {
+            FAC_NAME: exhibitionLists[i].FAC_NAME,
+            SUBJCODE: exhibitionLists[i].SUBJCODE,
+            ADDR: exhibitionLists[i].ADDR,
+            X_COORD: exhibitionLists[i].X_COORD,
+            Y_COORD: exhibitionLists[i].Y_COORD,
+            PHNE: exhibitionLists[i].PHNE,
+            CLOSEDAY: exhibitionLists[i].CLOSEDAY,
+            FAC_DESC: exhibitionLists[i].FAC_DESC,
+            ENTRFREE: exhibitionLists[i].ENTRFREE,
+            SUBWAY: exhibitionLists[i].SUBWAY,
+            BUSSTOP: exhibitionLists[i].BUSSTOP,
+            MAIN_IMG: exhibitionLists[i].MAIN_IMG,
+          },
+        });
+        return res.status(200).send({
+          response: exhibitionLists[i],
+          message: "문화공간 정보를 조회했습니다.",
+        });
       }
     })
     .catch(function (error) {
-      console.log(error);
+      res.status(404).send(error);
     });
 };

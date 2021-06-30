@@ -1,52 +1,38 @@
+const { park } = require("../../models");
 const axios = require("axios");
-const data = "";
 
 const config = {
   method: "get",
-  url: "http://openapi.seoul.go.kr:8088/56434e586b686f6f3430704653486e/json/SearchParkInfoService/1/132/",
-  headers: {},
-  data: data,
+  url: "http://openapi.seoul.go.kr:8088/56434e586b686f6f3430704653486e/json/SearchParkInfoService/1/300/",
+  headers: {
+    "Content-Type": "application/json",
+  },
 };
 
 module.exports = async (req, res) => {
-  console.log(req);
   await axios(config)
-    .then(function (response) {
-      for (i in response["data"]["SearchParkInfoService"]["row"]) {
-        console.log("***********************");
-        console.log("***********************");
-        console.log(
-          "공원명 : " +
-            response["data"]["SearchParkInfoService"]["row"][i]["P_PARK"]
-        );
-        console.log(
-          "공원이용시 참고사항 : " +
-            response["data"]["SearchParkInfoService"]["row"][i]["USE_REFER"]
-        );
-        console.log(
-          "공원이미지 : " +
-            response["data"]["SearchParkInfoService"]["row"][i]["P_IMG"]
-        );
-        console.log(
-          "공원주소 : " +
-            response["data"]["SearchParkInfoService"]["row"][i]["P_ADDR"]
-        );
-        console.log(
-          "공원전화번호 : " +
-            response["data"]["SearchParkInfoService"]["row"][i]["P_ADMINTEL"]
-        );
-        console.log("-----------------------");
-        console.log(
-          "공원오는길 : " +
-            response["data"]["SearchParkInfoService"]["row"][i]["VISIT_ROAD"]
-        );
-        console.log("-----------------------");
-        console.log("***********************");
-        console.log("***********************");
+    .then((response) => {
+      const parkLists = response["data"]["SearchParkInfoService"]["row"];
+
+      for (let i in parkLists) {
+        i = Math.floor(Math.random() * parkLists.length);
+        park.findOrCreate({
+          where: {
+            P_PARK: parkLists[i].P_PARK,
+            VISIT_ROAD: parkLists[i].VISIT_ROAD,
+            P_ADMINTEL: parkLists[i].P_ADMINTEL,
+            P_ADDR: parkLists[i].P_ADDR,
+            USE_REFER: parkLists[i].USE_REFER,
+            P_IMG: parkLists[i].P_IMG,
+          },
+        });
+        return res.status(200).send({
+          response: parkLists[i],
+          message: "공원 정보를 조회했습니다.",
+        });
       }
     })
-    // .then((response) => res.status(200).send(response))
     .catch(function (error) {
-      console.log(error);
+      res.status(404).send(error);
     });
 };
