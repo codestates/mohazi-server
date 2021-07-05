@@ -14,17 +14,17 @@ module.exports = {
       }
     }).then(userInfo => {
       if (userInfo) {
-        res.status(409).send("중복된 이메일이 존재합니다.")
+        res.status(409).send({
+          err: "중복된 이메일이 존재합니다."
+        })
       } else {
         user.create({
           username: username,
           email: email,
           password: password
-        }).then(userInfo => {
-          user_daily.create({
-            user_id: userInfo.dataValues.id,
-          })
-          res.status(200).send("회원가입이 완료되었습니다.")
+        })
+        res.status(200).send({
+          message: "회원가입이 완료되었습니다."
         })
       }
     })
