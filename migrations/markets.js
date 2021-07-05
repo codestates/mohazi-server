@@ -1,29 +1,44 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('parks', {
+    await queryInterface.createTable('markets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      P_PARK: {
+      address_name: {
         type: Sequelize.STRING
       },
-      VISIT_ROAD: {
+      category_group_code: {
         type: Sequelize.STRING
       },
-      P_ADMINTEL: {
+      category_group_name: {
         type: Sequelize.STRING
       },
-      P_ADDR: {
+      category_name: {
         type: Sequelize.STRING
       },
-      USE_REFER: {
+      distance: {
         type: Sequelize.STRING
       },
-      P_IMG: {
+      phone: {
+        type: Sequelize.STRING
+      },
+      place_name: {
+        type: Sequelize.STRING
+      },
+      place_url: {
+        type: Sequelize.STRING
+      },
+      road_address_name: {
+        type: Sequelize.STRING
+      },
+      x: {
+        type: Sequelize.STRING
+      },
+      y: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -33,10 +48,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('parks');
+    await queryInterface.dropTable('markets');
   }
 };

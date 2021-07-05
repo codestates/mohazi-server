@@ -3,7 +3,7 @@ const { user } = require('../../models')
 module.exports = {
   patch: async (req, res) => {
     const { userId, email, username, password, photo, description } = req.body
-    console.log(req.body)
+    console.log(req.session)
 
     await user.update({
       username: username,

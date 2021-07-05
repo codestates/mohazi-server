@@ -1,4 +1,5 @@
 const { user, user_daily } = require('../../models')
+const selections = require('../selections')
 
 module.exports = {
   post: async (req, res) => {
@@ -20,10 +21,11 @@ module.exports = {
           username: username,
           email: email,
           password: password
-        }).then(userInfo => {
-          user_daily.create({
-            user_id: userInfo.dataValues.id,
-          })
+        })
+        .then(userInfo => {
+        //   user_daily.create({
+        //     user_id: userInfo.dataValues.id,
+        //   })
           res.status(200).send("회원가입이 완료되었습니다.")
         })
       }
