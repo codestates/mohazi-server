@@ -5,7 +5,7 @@ const https = require("https");
 const fs = require("fs");
 
 const usersRouter = require("./routes/users");
-// const cardsRouter = require("./routes/cards");
+const cardsRouter = require("./routes/cards");
 const selectionsRouter = require("./routes/selections");
 
 require('./models');
@@ -43,7 +43,7 @@ app.use(
 //router 연결 - users
 app.use("/", usersRouter);
 // cards
-// app.use("/", cardsRouter);
+app.use("/", cardsRouter);
 // selections
 app.use("/", selectionsRouter);
 
