@@ -1,29 +1,44 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('malls', {
+    await queryInterface.createTable('sights', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      BPLCNM: {
+      address_name: {
         type: Sequelize.STRING
       },
-      DTLSTATENM: {
+      category_group_code: {
         type: Sequelize.STRING
       },
-      SITETEL: {
+      category_group_name: {
         type: Sequelize.STRING
       },
-      RDNWHLADDR: {
+      category_name: {
         type: Sequelize.STRING
       },
-      RDNPOSTNO: {
-        type: Sequelize.INTEGER
+      distance: {
+        type: Sequelize.STRING
       },
-      UPTAENM: {
+      phone: {
+        type: Sequelize.STRING
+      },
+      place_name: {
+        type: Sequelize.STRING
+      },
+      place_url: {
+        type: Sequelize.STRING
+      },
+      road_address_name: {
+        type: Sequelize.STRING
+      },
+      x: {
+        type: Sequelize.STRING
+      },
+      y: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -37,6 +52,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('malls');
+    await queryInterface.dropTable('sights');
   }
 };

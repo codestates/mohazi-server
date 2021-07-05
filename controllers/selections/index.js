@@ -1,8 +1,8 @@
 module.exports = {
   CafeLists: require('./CafeLists'),
-  ParkLists: require('./ParkLists'),
+  SightLists: require('./SightLists'),
   ExhibitionLists: require('./ExhibitionLists'),
-  MallLists: require('./MallLists'),
+  MarketLists: require('./MarketLists'),
   RestaurantLists: require('./RestaurantLists'),
   Landing: require('./Landing'),
   ItemType: require('./ItemType'),

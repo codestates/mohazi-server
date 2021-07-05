@@ -1,4 +1,4 @@
-const { cafe } = require("../../models");
+const { sight } = require("../../models");
 const axios = require("axios");
 require("dotenv").config();
 
@@ -447,9 +447,9 @@ module.exports = async (req, res) => {
 
     await axios({
       method: "get",
-      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=1`,
-      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=2`,
-      url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=3`,
+      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=AT4&page=1`,
+      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=AT4&page=2`,
+      url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=AT4&page=3`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.KAKAO_MAP_RESTAPI_KEY}`,
@@ -457,29 +457,29 @@ module.exports = async (req, res) => {
     })
       .then((response) => {
         // console.log(response.data);
-        const cafeLists = response.data.documents;
-        for (let i = 0; i < cafeLists.length; i++) {
-          cafe.findOrCreate({
+        const sightLists = response.data.documents;
+        for (let i = 0; i < sightLists.length; i++) {
+          sight.findOrCreate({
             where: {
-              address_name: cafeLists[i].address_name,
-              category_group_code: cafeLists[i].category_group_code,
-              category_group_name: cafeLists[i].category_group_name,
-              category_name: cafeLists[i].category_name,
-              distance: cafeLists[i].distance,
-              phone: cafeLists[i].phone,
-              place_name: cafeLists[i].place_name,
-              place_url: cafeLists[i].place_url,
-              road_address_name: cafeLists[i].road_address_name,
-              x: cafeLists[i].x,
-              y: cafeLists[i].y,
+              address_name: sightLists[i].address_name,
+              category_group_code: sightLists[i].category_group_code,
+              category_group_name: sightLists[i].category_group_name,
+              category_name: sightLists[i].category_name,
+              distance: sightLists[i].distance,
+              phone: sightLists[i].phone,
+              place_name: sightLists[i].place_name,
+              place_url: sightLists[i].place_url,
+              road_address_name: sightLists[i].road_address_name,
+              x: sightLists[i].x,
+              y: sightLists[i].y,
             },
           });
           continue;
         }
         return res.status(200).send({
-          response: cafeLists,
+          response: sightLists,
           meta: response.data.meta,
-          message: "카페 정보를 조회했습니다.",
+          message: "관광명소 정보를 조회했습니다.",
         });
       })
       .catch((error) => {

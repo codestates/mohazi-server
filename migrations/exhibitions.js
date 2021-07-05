@@ -8,40 +8,37 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      FAC_NAME: {
+      address_name: {
         type: Sequelize.STRING
       },
-      SUBJCODE: {
+      category_group_code: {
         type: Sequelize.STRING
       },
-      ADDR: {
+      category_group_name: {
         type: Sequelize.STRING
       },
-      X_COORD: {
-        type: Sequelize.INTEGER
-      },
-      Y_COORD: {
-        type: Sequelize.INTEGER
-      },
-      PHNE: {
+      category_name: {
         type: Sequelize.STRING
       },
-      CLOSEDAY: {
+      distance: {
         type: Sequelize.STRING
       },
-      FAC_DESC: {
+      phone: {
         type: Sequelize.STRING
       },
-      ENTRFREE: {
-        type: Sequelize.BOOLEAN
-      },
-      SUBWAY: {
+      place_name: {
         type: Sequelize.STRING
       },
-      BUSSTOP: {
+      place_url: {
         type: Sequelize.STRING
       },
-      MAIN_IMG: {
+      road_address_name: {
+        type: Sequelize.STRING
+      },
+      x: {
+        type: Sequelize.STRING
+      },
+      y: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -51,7 +48,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

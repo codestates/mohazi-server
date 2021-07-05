@@ -14,12 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   cafe.init({
-    BPLCNM: DataTypes.STRING,
-    DTLSTATENM: DataTypes.STRING,
-    SITETEL: DataTypes.STRING,
-    RDNWHLADDR: DataTypes.STRING,
-    RDNPOSTNO: DataTypes.INTEGER,
-    UPTAENM: DataTypes.STRING
+    address_name: DataTypes.STRING,
+    category_group_code: DataTypes.STRING,
+    category_group_name: DataTypes.STRING,
+    category_name: DataTypes.STRING,
+    distance: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    place_name: DataTypes.STRING,
+    place_url: DataTypes.STRING,
+    road_address_name: DataTypes.STRING,
+    x: DataTypes.STRING,
+    y: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'cafe',
