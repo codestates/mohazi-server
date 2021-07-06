@@ -1,4 +1,4 @@
-const { cafe, exhibition, mall, park, restaurant } = require("../../models");
+const { cafe, exhibition, market, sight, restaurant } = require("../../models");
 const { Op } = require("sequelize");
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
             },
           })
           .then((exhibition) => {
-            mall
+            market
               .findAll({
                 where: {
                   id: {
@@ -30,7 +30,7 @@ module.exports = {
                 },
               })
               .then((mall) => {
-                park
+                sight
                   .findAll({
                     where: {
                       id: {
