@@ -2,6 +2,7 @@ const { user } = require('../../models')
 
 module.exports = {
   post: async (req, res) => {
+    // console.log(req)
     await user.findOne({
       where: {
         email: req.body.email
