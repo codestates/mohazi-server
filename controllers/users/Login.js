@@ -5,7 +5,8 @@ module.exports = {
     // console.log(req)
     await user.findOne({
       where: {
-        email: req.body.email
+        email: req.body.email,
+        password: req.body.password
       }
     }).then(userInfo => {
       if (!userInfo) {
