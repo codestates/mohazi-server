@@ -6,9 +6,9 @@ module.exports = {
     console.log(req.session)
 
     //console.log(req);
-    console.log(req.body);
-    console.log(req.file);
-    console.log(UserId);
+    // console.log(req.body);
+    // console.log(req.file);
+    // console.log(UserId);
 
     await user.update({
       username: Username,
