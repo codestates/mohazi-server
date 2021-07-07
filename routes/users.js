@@ -11,7 +11,7 @@ var _storage = multer.diskStorage({
    //이미지 어디로 넣을거냐
     destination:function (req,file,cb){
                    //전역상태
-        cb(null, 'uploads/')
+        cb(null, '../mohazi-client/public/img')
     },
     //넣을 파일 이름을 어떻게 할거냐(file.~~)
     filename:function(req,file,cb){
