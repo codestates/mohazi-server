@@ -37,10 +37,10 @@ const upload = multer({storage:_storage, fileFilter:imageFilter,limits: limits,
 })
 
 
-router.post("/login", usersController.Login.post);
-router.post("/logout", usersController.Logout.post);
-router.post("/signup", usersController.SignUp.post);
-router.patch("/userupdate", upload.single('image'), usersController.UserUpdate.patch);
+router.put("/login", usersController.Login.post);
+router.put("/logout", usersController.Logout.post);
+router.put("/signup", usersController.SignUp.post);
+router.put("/userupdate", upload.single('image'), usersController.UserUpdate.patch);
 router.delete("/userdelete", usersController.UserDelete.delete);
 router.get("/usersearch", usersController.UserSearch.get);
 
