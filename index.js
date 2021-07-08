@@ -3,6 +3,7 @@ const session = require("express-session");
 const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
+const dotenv = require("dotenv")
 
 const usersRouter = require("./routes/users");
 const cardsRouter = require("./routes/cards");
@@ -13,6 +14,13 @@ require('./models');
 const app = express();
 app.use(express.json());
 const port = 4000;
+
+const AWS = require("aws-sdk");
+dotenv.config()
+AWS.config.region = process.env.PORT.AWS_CONFIG_REGION;
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+  IdentityPoolId: process.env.PORT.AWS_CONFIG_IDENTITYPOOLID
+});
 
 //express-session 설정
 app.use(
