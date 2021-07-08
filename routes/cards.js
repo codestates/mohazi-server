@@ -7,6 +7,6 @@ router.put("/createcard", cardsController.CreateCard.post);
 // router.get("/dailycardinfo", cardsController.DailyCardInfo.get);
 // router.delete("/dåailycarddelete", cardsController.DailyCardDelete.delete);
 // router.patch("/dailycardupdate", cardsController.DailyCardUpdate.patch);
-// router.get("/mypage", cardsController.MyPage.get);
+// router.put("/mypage", cardsController.MyPage.put);
 
 module.exports = router;

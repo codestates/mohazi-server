@@ -40,8 +40,8 @@ const upload = multer({storage:_storage, fileFilter:imageFilter,limits: limits,
 router.put("/login", usersController.Login.post);
 router.put("/logout", usersController.Logout.post);
 router.put("/signup", usersController.SignUp.post);
-router.put("/userupdate", upload.single('image'), usersController.UserUpdate.patch);
+router.put("/userupdate", upload.single('image'), usersController.UserUpdate.put);
 router.delete("/userdelete", usersController.UserDelete.delete);
-router.get("/usersearch", usersController.UserSearch.get);
+router.put("/usersearch", usersController.UserSearch.get);
 
 module.exports = router;

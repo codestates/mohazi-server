@@ -440,6 +440,7 @@ module.exports = async (req, res) => {
     "길동",
     "둔촌1동",
     "둔촌2동",
+    "청운동", "신교동", "궁정동", "세종로", "효자동", "창성동", "통인동", "누상동", "누하동", "옥인동"
   ];
 
   for (let j = 0; j < dong.length; j++) {
@@ -447,9 +448,9 @@ module.exports = async (req, res) => {
 
     await axios({
       method: "get",
-      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=1`,
+      url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=1`,
       // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=2`,
-      url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=3`,
+      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=3`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.KAKAO_MAP_RESTAPI_KEY}`,
