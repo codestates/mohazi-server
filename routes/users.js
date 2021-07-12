@@ -51,6 +51,7 @@ const upload = multer({
 
 
 router.put("/login", usersController.Login.post);
+router.put("/sociallogin", usersController.SocialLogin.post);
 router.put("/logout", usersController.Logout.post);
 router.put("/signup", usersController.SignUp.post);
 router.put("/userupdate", upload.single('image'), usersController.UserUpdate.put);

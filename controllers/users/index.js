@@ -1,5 +1,6 @@
 module.exports = {
   Login: require('./Login'),
+  SocialLogin: require('./SocialLogin'),
   Logout: require('./Logout'),
   SignUp: require('./SignUp'),
   UserDelete: require('./UserDelete'),
