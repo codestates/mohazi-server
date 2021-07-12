@@ -10,7 +10,7 @@ const { user, user_daily, dailyCard, selection } = require("../../models");
 module.exports = async (req, res) => {
   await user.findOne({
     where: {
-      email: req.body.email
+      id: req.body.userId
     }
   })
   .then(friend => {
@@ -25,16 +25,18 @@ module.exports = async (req, res) => {
         dailyCards_id: dailyCard.id
       })
       .then(user_daily => {
+        // console.log(user_daily)
         selection.findOne({
           where: {
-            dailyCards_id: dailyCard.id
+            dailyCards_id: req.body.dailyCardId
           }
         })
         .then(selection => {
+          // console.log(selection)
           delete friend.password
           res.status(200).send({
             friendInfo: friend,
-            detailDailyInfo: selection,
+            detailDailyInfo: selection.type,
             dailyCardInfo: dailyCard,
             userAndDailyCard: user_daily
           })

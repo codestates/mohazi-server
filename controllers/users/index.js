@@ -5,5 +5,6 @@ module.exports = {
   SignUp: require('./SignUp'),
   UserDelete: require('./UserDelete'),
   UserSearch: require('./UserSearch'),
-  UserUpdate: require('./UserUpdate')
+  UserUpdate: require('./UserUpdate'),
+  MyPage: require('./MyPage')
 }

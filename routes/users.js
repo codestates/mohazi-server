@@ -49,7 +49,6 @@ const upload = multer({
     storage: _storage, fileFilter: imageFilter, limits: limits,
 })
 
-
 router.put("/login", usersController.Login.post);
 router.put("/sociallogin", usersController.SocialLogin.post);
 router.put("/logout", usersController.Logout.post);
@@ -57,5 +56,6 @@ router.put("/signup", usersController.SignUp.post);
 router.put("/userupdate", upload.single('image'), usersController.UserUpdate.put);
 router.delete("/userdelete", usersController.UserDelete.delete);
 router.put("/usersearch", usersController.UserSearch.get);
+router.get("/mypage", usersController.MyPage)
 
 module.exports = router;
