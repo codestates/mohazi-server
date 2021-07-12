@@ -4,7 +4,7 @@ module.exports = {
   get: async (req, res) => {
     const { email } = req.query;
     console.log(req);
-    console.log(email);
+    console.log('이메일', req.params);
     await user.findOne({
       where: {
         email: email

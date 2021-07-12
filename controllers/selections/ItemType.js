@@ -9,6 +9,7 @@ const { Op } = require("sequelize");
 // y : rect[1] ~ y ~ rect[3]
 
 module.exports = async (req, res) => {
+  console.log(req.body)
   if (req.body.itemType === "CE7") {
     await cafe
       .findAll({
@@ -23,7 +24,7 @@ module.exports = async (req, res) => {
         },
       })
       .then((results) => {
-        // console.log(results)
+        console.log(results)
         res.status(200).send({items: results});
       })
       .catch((err) => res.status(400).send(err));
