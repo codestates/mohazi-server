@@ -5,7 +5,7 @@ module.exports = {
     // console.log(req);
     await dailyCard
       .create({
-        user_id: req.body.userId,
+        admin: req.body.userId,
         photo: "",
         date: req.body.date,
       })
@@ -20,7 +20,7 @@ module.exports = {
             date: cardInfo.dataValues.date,
           })
           .then((selections) => {
-            console.log(selections);
+            // console.log(selections);
             user_daily.create({
               user_id: req.body.userId,
               dailyCards_id: selections.dailyCards_id,
