@@ -6,6 +6,7 @@ module.exports = {
   UserDelete: require('./UserDelete'),
   UserSearch: require('./UserSearch'),
   UserUpdate: require('./UserUpdate'),
+  MyPage: require('./MyPage'),
   AddFriend: require('./AddFriend'),
   DeleteFriend: require('./DeleteFriend')
 }

@@ -28,5 +28,6 @@ router.delete("/userdelete", usersController.UserDelete.delete);
 router.put('/addfriend', usersController.AddFriend.put);
 router.delete('/deletefriend', usersController.DeleteFriend.delete);
 router.put("/usersearch", usersController.UserSearch.get);
+router.get("/mypage", usersController.MyPage)
 
 module.exports = router;
