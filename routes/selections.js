@@ -9,7 +9,7 @@ router.get("/exhibitionlists", selectionsController.ExhibitionLists);
 router.get("/marketlists", selectionsController.MarketLists);
 router.get("/restaurantlists", selectionsController.RestaurantLists);
 router.get("/landing", selectionsController.Landing.get);
-router.get("/itemtype", selectionsController.ItemType);
-// router.patch("/selectionupdate", selectionsController.SelectionUpdate.patch);
+router.put("/itemtype", selectionsController.ItemType);
+router.put("/selectionupdate", selectionsController.SelectionUpdate);
 
 module.exports = router;
