@@ -2,9 +2,9 @@ const { user } = require('../../models');
 const s3 = require('../../config/s3');
 
 module.exports = {
-  patch: async (req, res) => {
+  put: async (req, res) => {
     const { UserId, Email, Username, Password, Photo, Description } = req.body
-    //console.log(req.session)
+    // console.log(req.session)
 
     console.log(req.body);
     // console.log(req.body);
@@ -39,7 +39,8 @@ module.exports = {
         id: UserId
       }
     }).then(userInfo => {
-      //console.log(userInfo);
+
+      // console.log(userInfo);
       return res.status(200).send({
         message: "성공적으로 정보를 바꾸었습니다.",
       })

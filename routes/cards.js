@@ -20,11 +20,12 @@ const upload = multer({
 });
 
 router.put("/createcard", cardsController.CreateCard.post);
+router.put("/addfriends", cardsController.AddFriends);
 // router.get("/dailycardinfo", cardsController.DailyCardInfo.get);
-// router.delete("/dåailycarddelete", cardsController.DailyCardDelete.delete);
-// router.patch("/dailycardupdate", cardsController.DailyCardUpdate.patch);
-// router.get("/mypage", cardsController.MyPage.get);
 router.put('/s3upload', upload.single('image'), cardsController.s3Upload.put);
 router.put('/s3delete', cardsController.s3Delete.put);
+router.delete("/dailycarddelete", cardsController.DailyCardDelete);
+router.put("/dailycardupdate", cardsController.DailyCardUpdate);
+router.get("/mypage", cardsController.MyPage.friends);
 
 module.exports = router;

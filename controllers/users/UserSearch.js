@@ -2,15 +2,15 @@ const { user } = require('../../models')
 
 module.exports = {
   get: async (req, res) => {
-    const { email } = req.query;
-    console.log(req);
-    console.log('이메일', req.params);
+    const { email } = req.body;
+    // console.log(req.query);
+    // console.log(email);
     await user.findOne({
       where: {
         email: email
       }
     }).then(userInfo => {
-      console.log(userInfo);
+      // console.log(userInfo);
       res.status(200).send({
         userInfo: {
           id: userInfo.dataValues.id,
