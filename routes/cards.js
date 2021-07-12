@@ -4,9 +4,10 @@ const router = express.Router();
 const { cardsController } = require('../controllers');
 
 router.put("/createcard", cardsController.CreateCard.post);
+router.put("/addfriends", cardsController.AddFriends);
 // router.get("/dailycardinfo", cardsController.DailyCardInfo.get);
-// router.delete("/dåailycarddelete", cardsController.DailyCardDelete.delete);
-// router.patch("/dailycardupdate", cardsController.DailyCardUpdate.patch);
-// router.put("/mypage", cardsController.MyPage.put);
+router.delete("/dailycarddelete", cardsController.DailyCardDelete);
+router.put("/dailycardupdate", cardsController.DailyCardUpdate);
+router.get("/mypage", cardsController.MyPage.friends);
 
 module.exports = router;

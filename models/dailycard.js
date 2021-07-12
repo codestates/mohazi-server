@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   dailyCard.init({
-    user_id: DataTypes.INTEGER,
+    admin: DataTypes.INTEGER,
     photo: DataTypes.STRING,
-    date: DataTypes.STRING
+    date: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'dailyCard',
