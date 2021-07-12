@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       })
       .then((results) => {
         // console.log(results)
-        res.status(200).send({items: results});
+        res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
   }
@@ -43,7 +43,7 @@ module.exports = async (req, res) => {
       })
       .then((results) => {
         // console.log(results)
-        res.status(200).send({items: results});
+        res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
   }
@@ -62,7 +62,7 @@ module.exports = async (req, res) => {
       })
       .then((results) => {
         // console.log(results)
-        res.status(200).send({items: results});
+        res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
   }
@@ -81,7 +81,7 @@ module.exports = async (req, res) => {
       })
       .then((results) => {
         // console.log(results)
-        res.status(200).send({items: results});
+        res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
   }
@@ -100,7 +100,7 @@ module.exports = async (req, res) => {
       })
       .then((results) => {
         // console.log(results)
-        res.status(200).send({items: results});
+        res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
   }
