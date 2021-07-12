@@ -17,9 +17,9 @@ const port = 4000;
 
 const AWS = require("aws-sdk");
 dotenv.config()
-AWS.config.region = process.env.PORT.AWS_CONFIG_REGION;
+AWS.config.region = process.env.AWS_CONFIG_REGION;
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-  IdentityPoolId: process.env.PORT.AWS_CONFIG_IDENTITYPOOLID
+  IdentityPoolId: process.env.AWS_CONFIG_IDENTITYPOOLID
 });
 
 //express-session 설정
@@ -55,17 +55,6 @@ app.use("/", cardsRouter);
 // selections
 app.use("/", selectionsRouter);
 
-//https-server
-const server = https
-  .createServer(
-    {
-      key: fs.readFileSync(__dirname + `/` + "key.pem", "utf-8"),
-      cert: fs.readFileSync(__dirname + `/` + "cert.pem", "utf-8"),
-    },
-    app
-  )
-  .listen(port, () => {
-    console.log(`🚀 ${port}번 포트로 서버가 연결됐습니다.`);
-  });
-
-module.exports = server;
+app.listen(port, () => {
+  console.log(`🚀 ${port}번 포트로 서버가 연결됐습니다.`);
+});

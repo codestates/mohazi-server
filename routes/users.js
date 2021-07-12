@@ -23,7 +23,7 @@ const s3 = new aws.S3();
 // })
 var _storage = multerS3({
     s3: s3,
-    bucket: mohazig, // 버킷 이름
+    bucket: 'mohazig', // 버킷 이름
     contentType: multerS3.AUTO_CONTENT_TYPE, // 자동을 콘텐츠 타입 세팅
     acl: "public-read", // 클라이언트에서 자유롭게 가용하기 위함
     key: function (req, file, cb) {
