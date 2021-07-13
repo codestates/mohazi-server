@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       memo: {
-        type: Sequelize.STRING
+        type: Sequelize.JSON
       },
       type: {
         type: Sequelize.JSON
