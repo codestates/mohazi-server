@@ -8,6 +8,8 @@
 const { user, user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = async (req, res) => {
+  console.log('add friends',req.body)
+  
   await user.findOne({
     where: {
       id: req.body.userId
