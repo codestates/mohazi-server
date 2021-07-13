@@ -2,6 +2,7 @@ const { user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
+    console.log(req.body)
     const { selections } = req.body;
     await dailyCard
       .create({

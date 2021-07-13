@@ -1,24 +1,20 @@
 const { user } = require('../../models')
+const { Op } = require('sequelize')
 
 module.exports = {
   get: async (req, res) => {
     const { email } = req.body;
     // console.log(req.query);
-    // console.log(email);
-    await user.findOne({
+    console.log(email);
+    await user.findAll({
       where: {
-        email: email
-      }
-    }).then(userInfo => {
-      // console.log(userInfo);
-      res.status(200).send({
-        userInfo: {
-          id: userInfo.dataValues.id,
-          email: userInfo.dataValues.email,
-          username: userInfo.dataValues.username,
-          photo: userInfo.dataValues.photo,
-          description: userInfo.dataValues.description,
+        email: {
+          [Op.like] : `%${email}%`
         }
+      }
+    }).then(users => {
+      res.status(200).send({
+        userInfo: users
       })
     })
       .catch(err => {

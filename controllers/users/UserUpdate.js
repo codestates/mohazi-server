@@ -43,7 +43,6 @@ module.exports = {
               id: userId
             }
           }).then(userInfo => {
-      
             console.log(userInfo);
             return res.status(200).send({
               message: "성공적으로 정보를 바꾸었습니다.",
