@@ -1,4 +1,4 @@
-const { selection } = require("../../models");
+const { selection, dailyCard } = require("../../models");
 
 module.exports = async (req, res) => {
   const { dailycardId, memos, photo, friends, date } = req.body;
@@ -7,9 +7,9 @@ module.exports = async (req, res) => {
     .update(
       {
         memo: memos,
-        photo: photo,
-        friends: friends,
-        date: date,
+        // photo: photo, // dailyCard table에서 변경
+        // friends: friends,
+        // date: date, // dailyCard table에서 변경
       },
       {
         where: {

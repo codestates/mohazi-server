@@ -6,14 +6,14 @@ module.exports = {
     //console.log('친구 아이디', parseInt(userId), dailyCardId)
     const friend = user_daily.findOne({
         where: {
-            user_id: parseInt(userId),
+            user_id: userId,
             dailyCards_id: dailyCardId
         }
     })
 
     if(!friend) {
         await user_daily.create({
-            user_id: parseInt(userId),
+            user_id: userId,
             dailyCards_id: dailyCardId
           })
           .then(response => {

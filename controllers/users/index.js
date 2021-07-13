@@ -8,5 +8,6 @@ module.exports = {
   UserUpdate: require('./UserUpdate'),
   MyPage: require('./MyPage'),
   AddFriend: require('./AddFriend'),
-  DeleteFriend: require('./DeleteFriend')
+  DeleteFriend: require('./DeleteFriend'),
+  SearchFriends: require('./SearchFriends')
 }
