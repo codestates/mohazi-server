@@ -11,5 +11,6 @@ router.get("/restaurantlists", selectionsController.RestaurantLists);
 router.get("/landing", selectionsController.Landing.get);
 router.put("/itemtype", selectionsController.ItemType);
 router.put("/selectionupdate", selectionsController.SelectionUpdate);
+router.get("/searchselections", selectionsController.SearchSelections)
 
 module.exports = router;

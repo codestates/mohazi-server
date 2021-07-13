@@ -1,8 +1,8 @@
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
-// const https = require("https");
-// const fs = require("fs");
+const https = require("https");
+const fs = require("fs");
 const dotenv = require("dotenv")
 
 const usersRouter = require("./routes/users");
@@ -58,8 +58,8 @@ app.use("/", selectionsRouter);
 const server = https
   .createServer(
     {
-      key: fs.readFileSync(__dirname + '/' + "key.pem", "utf-8"),
-      cert: fs.readFileSync(__dirname + '/' + "cert.pem", "utf-8"),
+      key: fs.readFileSync(__dirname + `/` + "key.pem", "utf-8"),
+      cert: fs.readFileSync(__dirname + `/` + "cert.pem", "utf-8"),
     },
     app
   )

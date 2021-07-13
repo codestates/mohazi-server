@@ -17,15 +17,6 @@ module.exports = {
       type: {
         type: Sequelize.JSON
       },
-      type_id: {
-        type: Sequelize.INTEGER
-      },
-      photo: {
-        type: Sequelize.STRING
-      },
-      date: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
