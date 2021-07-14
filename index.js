@@ -55,9 +55,25 @@ app.use("/", cardsRouter);
 // selections
 app.use("/", selectionsRouter);
 
+<<<<<<< HEAD
 
 app.listen(port, () => {
   console.log(`🚀 ${port}번 포트로 서버가 연결됐습니다.`);
 });
 
 app.get('/', (req, res) => { res.status(200).send("Hello World") })
+=======
+const server = https
+  .createServer(
+    {
+      key: fs.readFileSync(__dirname + `/` + "key.pem", "utf-8"),
+      cert: fs.readFileSync(__dirname + `/` + "cert.pem", "utf-8"),
+    },
+    app
+  )
+  .listen(port, () => {
+    console.log(`🚀 ${port}번 포트로 서버가 연결됐습니다.`);
+  });
+
+module.exports = server;
+>>>>>>> 3c836fe3a2c77ebb008aee45e589a7618c47a70a
