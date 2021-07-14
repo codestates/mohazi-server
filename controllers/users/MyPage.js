@@ -1,7 +1,9 @@
 // /mypage에 들어갔을 때 필요한 정보들
 // user정보, 해당 user가 갖고 있는 카드들, 해당 user가 tag된 카드들
 // user table, user_daily table
-const { user, dailyCard } = require("../../models");
+
+// TODO : /mypage에서 selections도 보이도록
+const { user, dailyCard, selection } = require("../../models");
 const axios = require("axios");
 
 module.exports = async (req, res) => {
