@@ -9,6 +9,7 @@ const axios = require("axios");
 module.exports = async (req, res) => {
   const { userId } = req.body;
 
+  //console.log('여기', userId)
   await user
     .findOne({
       where: {

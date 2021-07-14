@@ -10,6 +10,7 @@
 const { user, user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = async (req, res) => {
+
   const { userId, dailyCardId } = req.body;
 
   if (
@@ -27,6 +28,7 @@ module.exports = async (req, res) => {
 
   await user
     .findOne({
+
       where: {
         id: userId,
       },
@@ -38,6 +40,7 @@ module.exports = async (req, res) => {
             id: dailyCardId,
           },
         })
+
         .then((dailyCard) => {
           if (!dailyCard || !friend) {
             return res
@@ -70,6 +73,7 @@ module.exports = async (req, res) => {
                 });
             });
         });
+
     })
     .catch((error) =>
       res.status(400).send({ message: "회원을 추가할 수 없습니다." })

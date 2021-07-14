@@ -1,6 +1,7 @@
 module.exports = {
   post: async (req, res) => {
-    req.session.destroy()
+    req.session.destroy();
+    console.log('session', req.session)
     res.status(200).send({
       message: "로그아웃이 완료되었습니다."
     })
