@@ -2,7 +2,8 @@ const { user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
-    // console.log(req);
+    console.log(req.body)
+    const { selections } = req.body;
     await dailyCard
       .create({
         admin: req.body.userId,
@@ -15,9 +16,7 @@ module.exports = {
           .create({
             dailyCards_id: cardInfo.dataValues.id,
             memo: "",
-            type: req.body.selections,
-            photo: cardInfo.dataValues.photo,
-            date: cardInfo.dataValues.date,
+            type: selections,
           })
           .then((selections) => {
             // console.log(selections);
@@ -25,13 +24,11 @@ module.exports = {
               user_id: req.body.userId,
               dailyCards_id: selections.dailyCards_id,
             });
-            // for (let i in selections) {
             return res.status(200).send({
+              message: "성공적으로 일정을 등록했습니다.",
               dailyCard: cardInfo,
               selections: selections.type,
-              message: "성공적으로 일정을 등록했습니다.",
             });
-          // }
           });
       });
   },

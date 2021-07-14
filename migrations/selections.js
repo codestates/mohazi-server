@@ -12,19 +12,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       memo: {
-        type: Sequelize.STRING
+        type: Sequelize.JSON
       },
       type: {
         type: Sequelize.JSON
-      },
-      type_id: {
-        type: Sequelize.INTEGER
-      },
-      photo: {
-        type: Sequelize.STRING
-      },
-      date: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
