@@ -1,7 +1,7 @@
 // request
 // 1. userId
 // 2. dailyCardId
-const { user, user_daily, dailyCard, selection } = require("../../models");
+const { user, user_daily } = require("../../models");
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
       friendsInfo,
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(400).send(err);
   }
 };
