@@ -12,8 +12,8 @@ module.exports = {
             console.log(err)
           }
         })
-        .then(res => {
-            return res.status(200).send({
+        .then(asdf => {
+            res.status(200).send({
               message: "성공적으로 S3에서 정보가 삭제되었습니다.",
             })
           })

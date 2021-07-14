@@ -55,3 +55,6 @@ module.exports = async (req, res) => {
       });
     });
 };
+
+// /signup
+// 1. 유저네임 한글도 가능하도록 구체화

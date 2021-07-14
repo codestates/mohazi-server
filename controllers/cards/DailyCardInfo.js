@@ -10,7 +10,7 @@ const { dailyCard, selection } = require("../../models");
 const axios = require("axios");
 
 module.exports = async (req, res) => {
-  const { dailyCardId } = req.body;
+  const { dailyCardId } = req.query;
 
   await dailyCard
     .findOne({
