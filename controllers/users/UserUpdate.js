@@ -19,39 +19,65 @@ module.exports = {
       .then(res => {
         const prevPhoto = res.dataValues.photo;
         
-        s3.deleteObject({
-          Bucket : 'mohazig',
-          Key: prevPhoto
-        }, function(err, data){
-          if(data) {
-            console.log('delete success', data)
-          } else {
-            console.log(err)
-          }
-        });
+        if(photo !== prevPhoto) {
+          s3.deleteObject({
+            Bucket : 'mohazig',
+            Key: prevPhoto
+          }, function(err, data){
+            if(data) {
+              console.log('delete success', data)
+            } else {
+              console.log(err)
+            }
+          });
+  
+        }
       })
       .then(response => {
-        user.update({
-          username: username,
-          password: password,
-          photo: photo,
-          description: description,
-        }, {
-          where: {
-            id: userId
-          }
-        }).then(userInfo => {
-    
-          console.log(userInfo);
-          return res.status(200).send({
-            message: "성공적으로 정보를 바꾸었습니다.",
+        if(password) {
+          user.update({
+            username: username,
+            password: password,
+            photo: photo,
+            description: description,
+          }, {
+            where: {
+              id: userId
+            }
+          }).then(userInfo => {
+            console.log(userInfo);
+            return res.status(200).send({
+              message: "성공적으로 정보를 바꾸었습니다.",
+            })
           })
-        })
+            .catch(err => {
+              res.status(400).send({
+                err: "err"
+              })
+            })  
+        } else {
+          user
+          .update({
+            username: username,
+            photo: photo,
+            description: description,
+          }, {
+            where: {
+              id: userId
+            }
+          })
+          .then(userInfo => {
+            console.log(userInfo);
+            return res.status(200).send({
+              message: "성공적으로 정보를 바꾸었습니다.",
+            })
+          })
           .catch(err => {
             res.status(400).send({
               err: "err"
             })
           })
+        }
       })
   }
 }
