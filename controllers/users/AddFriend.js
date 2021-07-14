@@ -8,12 +8,14 @@
 const { user, user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = async (req, res) => {
+  //console.log('friend', req)
   await user.findOne({
     where: {
       id: req.body.userId
     }
   })
   .then(friend => {
+    //console.log('friend', friend)
     dailyCard.findOne({
       where: {
         id: req.body.dailyCardId
@@ -36,7 +38,7 @@ module.exports = async (req, res) => {
           delete friend.password
           res.status(200).send({
             friendInfo: friend,
-            detailDailyInfo: selection.type,
+            selections: selection,
             dailyCardInfo: dailyCard,
             userAndDailyCard: user_daily
           })

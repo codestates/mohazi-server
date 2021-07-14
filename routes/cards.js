@@ -20,9 +20,9 @@ const upload = multer({
 });
 
 router.put("/createcard", cardsController.CreateCard.post);
-router.get("/dailycardinfo", cardsController.DailyCardInfo);
+router.put("/dailycardinfo", cardsController.DailyCardInfo);
 router.put('/s3upload', upload.single('image'), cardsController.s3Upload.put);
-router.delete('/s3delete', cardsController.s3Delete.put);
+router.put('/s3delete', cardsController.s3Delete.put);
 router.delete("/dailycarddelete", cardsController.DailyCardDelete);
 router.put("/dailycardupdate", cardsController.DailyCardUpdate);
 router.get("/searchtaggedcards", cardsController.SearchTaggedCards)
