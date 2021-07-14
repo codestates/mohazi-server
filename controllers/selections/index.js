@@ -7,4 +7,5 @@ module.exports = {
   Landing: require('./Landing'),
   ItemType: require('./ItemType'),
   SelectionUpdate: require('./SelectionUpdate'),
+  SearchSelections: require('./SearchSelections')
 }

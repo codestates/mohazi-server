@@ -1,34 +1,48 @@
-const { user_daily } = require('../../models')
+// /addfriends
+// mypage 내 dailycards에 friends 추가하는 controller
+// API) required: 추가할 user email, 현재 dailyCard_id
+// response) userInfo
+// flow) user 검색 -> 해당 user 현재 dailyCard에 추가 -> user_daily table에 추가된 현재 user_id, 추가된 현재 dailyCards_id 생성
+// 결론적으로 같은 dailyCard id를 갖고 있는 유저가 둘 이상 생김
 
-module.exports = {
-  put: async (req, res) => {
-    const { userId, dailyCardId } = req.body
-    //console.log('친구 아이디', parseInt(userId), dailyCardId)
-    const friend = user_daily.findOne({
-        where: {
-            user_id: parseInt(userId),
-            dailyCards_id: dailyCardId
-        }
-    })
+const { user, user_daily, dailyCard, selection } = require("../../models");
 
-    if(!friend) {
-        await user_daily.create({
-            user_id: parseInt(userId),
-            dailyCards_id: dailyCardId
-          })
-          .then(response => {
-            console.log('친구추가 성공', response)
-            res.status(200).send({
-              message: "성공적으로 친구가 추가되었습니다"
-            })
-          })
-          .catch(err => {
-            res.status(400).send({
-              message: "error"
-            })
-        })
-    } else {
-        res.status(400).send({ message: "이미 추가된 친구입니다"})
+module.exports = async (req, res) => {
+  await user.findOne({
+    where: {
+      id: req.body.userId
     }
-  }
+  })
+  .then(friend => {
+    dailyCard.findOne({
+      where: {
+        id: req.body.dailyCardId
+      }
+    })
+    .then(dailyCard => {
+      user_daily.create({
+        user_id: friend.id,
+        dailyCards_id: dailyCard.id
+      })
+      .then(user_daily => {
+        // console.log(user_daily)
+        selection.findOne({
+          where: {
+            dailyCards_id: req.body.dailyCardId
+          }
+        })
+        .then(selection => {
+          // console.log(selection)
+          delete friend.password
+          res.status(200).send({
+            friendInfo: friend,
+            detailDailyInfo: selection.type,
+            dailyCardInfo: dailyCard,
+            userAndDailyCard: user_daily
+          })
+        })
+      })
+      })
+    })
+  .catch(error => console.log(error))
 }
