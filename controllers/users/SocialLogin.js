@@ -6,7 +6,7 @@ module.exports = {
       .findOne({
         where: {
           email: req.body.email,
-          password: req.body.googleId,
+          password: req.body.password,
         },
       })
       .then((userInfo) => {
@@ -14,7 +14,7 @@ module.exports = {
           user
             .create({
               email: req.body.email,
-              password: req.body.googleId,
+              password: req.body.password,
               username: req.body.name,
             })
             .then((socialInfo) => {

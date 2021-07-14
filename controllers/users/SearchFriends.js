@@ -6,16 +6,17 @@ const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
   const { dailyCardId } = req.query;
-  // console.log(req.query)
-
+  
   try {
+    console.log('query',req.query)
+
     const friends = await user_daily.findAll({
       raw: true,
       where: {
         dailyCards_id: dailyCardId,
       },
     });
-    // console.log(friends);
+    //console.log('확인',friends);
 
     const userIDs = friends.map((el) => el.user_id);
     // console.log(userIDs)

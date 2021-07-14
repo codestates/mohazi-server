@@ -2,6 +2,7 @@ const { user_daily } = require('../../models')
 
 module.exports = {
   delete: async (req, res) => {
+    console.log('delete', req.body)
     const { userId, dailyCardId } = req.body
     
     await user_daily.destroy({

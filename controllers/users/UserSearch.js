@@ -5,7 +5,7 @@ module.exports = {
   get: async (req, res) => {
     const { email } = req.body;
     // console.log(req.query);
-    console.log(email);
+    //console.log('email', email);
     await user.findAll({
       where: {
         email: {
@@ -13,6 +13,7 @@ module.exports = {
         }
       }
     }).then(users => {
+      //console.log('결과', users)
       res.status(200).send({
         userInfo: users
       })

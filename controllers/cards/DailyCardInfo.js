@@ -11,6 +11,7 @@ const axios = require("axios");
 
 module.exports = async (req, res) => {
   const { dailyCardId } = req.body;
+  console.log('d', req.body);
 
   await dailyCard
     .findOne({
@@ -33,7 +34,7 @@ module.exports = async (req, res) => {
               },
             })
             .then((friends) => {
-              // console.log(friends);
+              console.log('친구목록',friends.data.friendsInfo);
               res.status(200).send({
                 message: `${dailyCardId}번 카드의 정보를 조회했습니다.`,
                 date: card.date,
