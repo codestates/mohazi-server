@@ -4,8 +4,10 @@
 const { user, dailyCard } = require("../../models");
 const axios = require("axios");
 
+
 module.exports = async (req, res) => {
   const { userId } = req.body;
+
 
   await user
     .findOne({
@@ -41,4 +43,5 @@ module.exports = async (req, res) => {
     .catch((err) => {
       res.status(400).send({ message: "유저 정보를 조회할 수 없습니다." });
     });
+
 };
