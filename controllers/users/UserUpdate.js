@@ -1,5 +1,7 @@
 const { user } = require('../../models');
 const s3 = require('../../config/s3');
+const UserSearch = require('./UserSearch');
+const SelectionUpdate = require('../selections/SelectionUpdate');
 
 module.exports = {
   put: async (req, res) => {
