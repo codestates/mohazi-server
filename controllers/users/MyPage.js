@@ -1,7 +1,7 @@
 // /mypage에 들어갔을 때 필요한 정보들
 // user정보, 해당 user가 갖고 있는 카드들, 해당 user가 tag된 카드들
 // user table, user_daily table
-const { user, user_daily } = require("../../models");
+const { user, dailyCard } = require("../../models");
 const axios = require("axios");
 
 module.exports = async (req, res) => {
@@ -14,11 +14,11 @@ module.exports = async (req, res) => {
       },
     })
     .then((admin) => {
-      user_daily
+      dailyCard
         .findAll({
           raw: true,
           where: {
-            user_id: admin.id,
+            admin: admin.id,
           },
         })
         .then((cards) => {
