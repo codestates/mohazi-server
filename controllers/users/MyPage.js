@@ -1,6 +1,5 @@
 // /mypage에 들어갔을 때 필요한 정보들
 // user정보, 해당 user가 갖고 있는 카드들, 해당 user가 tag된 카드들
-
 // TODO : /mypage에서 selections도 보이도록
 // 현재 상황 : 내 정보, 내가 등록한 카드, 내가 태그된 카드들이 보임
 // 1. 내가 등록한 카드들의 selections를 뽑아야 함
