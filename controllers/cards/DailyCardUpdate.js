@@ -13,6 +13,8 @@ module.exports = async (req, res) => {
   await selection.update(
     {
       memo: memo,
+      photo: photo,
+      date: date,
     },
     {
       where: {
@@ -24,7 +26,7 @@ module.exports = async (req, res) => {
       dailyCard.update(
         {
           photo: photo,
-          date: date
+          date: date,
         },
         {
           where: {
@@ -34,6 +36,7 @@ module.exports = async (req, res) => {
       )
     })
     .then(result => {
+      console.log('send')
       res.status(200).send({ message: "데일리카드 수정이 완료되었습니다." });
     })
     .catch((err) => {
