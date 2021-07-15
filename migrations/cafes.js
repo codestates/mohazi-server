@@ -41,6 +41,9 @@ module.exports = {
       y: {
         type: Sequelize.STRING
       },
+      memo: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

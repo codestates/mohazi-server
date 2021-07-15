@@ -25,6 +25,7 @@ module.exports = {
           } else {
             req.session.save(function () {
               req.session.userId = admin.id;
+              // console.log(req.session)
               res.status(200).send({
                 userinfo: {
                   id: admin.id,
