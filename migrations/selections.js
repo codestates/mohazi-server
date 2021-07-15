@@ -11,7 +11,13 @@ module.exports = {
       dailyCards_id: {
         type: Sequelize.INTEGER
       },
+      admin: {
+        type: Sequelize.INTEGER
+      },
       date: {
+        type: Sequelize.STRING
+      },
+      photo: {
         type: Sequelize.STRING
       },
       memo: {
