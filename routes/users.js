@@ -24,7 +24,7 @@ router.put("/sociallogin", usersController.SocialLogin.post);
 router.put("/logout", usersController.Logout.post);
 router.put("/signup", usersController.SignUp.post);
 router.put("/userupdate", upload.single('image'), usersController.UserUpdate.put);
-router.delete("/userdelete", usersController.UserDelete.delete);
+router.put("/userdelete", usersController.UserDelete.delete);
 router.put('/addfriend', usersController.AddFriend);
 router.put('/deletefriend', usersController.DeleteFriend.delete);
 router.put("/usersearch", usersController.UserSearch.get);

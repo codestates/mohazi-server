@@ -5,7 +5,7 @@ const { user, user_daily } = require("../../models");
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
-  const { dailyCardId } = req.query;
+  const { userId, dailyCardId } = req.query;
 
   try {
     console.log("query", req.query);
@@ -14,6 +14,9 @@ module.exports = async (req, res) => {
       raw: true,
       where: {
         dailyCards_id: dailyCardId,
+        // user_id: {
+        //   [Op.not]: userId
+        // }
       },
     });
     //console.log('확인',friends);

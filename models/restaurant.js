@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     place_url: DataTypes.STRING,
     road_address_name: DataTypes.STRING,
     x: DataTypes.STRING,
-    y: DataTypes.STRING
+    y: DataTypes.STRING,
+    memo: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'restaurant',
