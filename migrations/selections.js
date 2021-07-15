@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       photo: {
-        type: Sequelize.STRING
+        type: Sequelize.JSON
       },
       memo: {
         type: Sequelize.JSON
