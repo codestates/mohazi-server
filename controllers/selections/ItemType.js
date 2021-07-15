@@ -9,7 +9,7 @@ const { Op } = require("sequelize");
 // y : rect[1] ~ y ~ rect[3]
 
 module.exports = async (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   if (req.body.itemType === "CE7") {
     await cafe
       .findAll({

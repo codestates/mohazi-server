@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     admin: DataTypes.INTEGER,
     date: DataTypes.STRING,
     photo: DataTypes.JSON,
-    memo: DataTypes.JSON,
+    memo: DataTypes.STRING,
     type: DataTypes.JSON,
   }, {
     sequelize,

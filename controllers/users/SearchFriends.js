@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   const { userId, dailyCardId } = req.query;
 
   try {
-    console.log("query", req.query);
+    // console.log("query", req.query);
 
     const friends = await user_daily.findAll({
       raw: true,
