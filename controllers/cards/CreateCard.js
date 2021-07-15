@@ -7,7 +7,7 @@ module.exports = {
     await dailyCard
       .create({
         admin: req.body.userId,
-        photo: "",
+        photo: [],
         date: req.body.date,
       })
       .then((cardInfo) => {
@@ -15,7 +15,10 @@ module.exports = {
         selection
           .create({
             dailyCards_id: cardInfo.dataValues.id,
-            memo: "",
+            admin: cardInfo.dataValues.admin,
+            date: cardInfo.dataValues.date,
+            photo: cardInfo.dataValues.photo,
+            memo: [],
             type: selections,
           })
           .then((selections) => {

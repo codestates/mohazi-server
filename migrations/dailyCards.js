@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       photo: {
-        type: Sequelize.STRING
+        type: Sequelize.JSON
       },
       date: {
         type: Sequelize.STRING
