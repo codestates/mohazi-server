@@ -3,6 +3,8 @@ const { selection, dailyCard } = require("../../models");
 module.exports = async (req, res) => {
   const { dailycardId, memos, photo, friends, date } = req.body;
 
+  console.log('asdsad=' , req.body);
+
   await selection.update(
     {
       memo: memos,
