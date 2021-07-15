@@ -2,7 +2,9 @@ const { user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
+
     console.log('a = ', req.body)
+
     const { selections } = req.body;
     await dailyCard
       .create({
@@ -18,11 +20,9 @@ module.exports = {
             admin: cardInfo.dataValues.admin,
             date: cardInfo.dataValues.date,
             photo: cardInfo.dataValues.photo,
-            // memo: [],
             type: selections,
           })
           .then((selections) => {
-            // console.log(selections);
             user_daily.create({
               user_id: req.body.userId,
               dailyCards_id: selections.dailyCards_id,
