@@ -18,7 +18,7 @@ module.exports = {
             admin: cardInfo.dataValues.admin,
             date: cardInfo.dataValues.date,
             photo: cardInfo.dataValues.photo,
-            memo: [],
+            // memo: [],
             type: selections,
           })
           .then((selections) => {
