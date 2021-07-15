@@ -10,7 +10,6 @@
 const { user, user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = async (req, res) => {
-
   const { userId, dailyCardId } = req.body;
 
   if (
@@ -21,14 +20,11 @@ module.exports = async (req, res) => {
       },
     })
   ) {
-    return res
-      .status(400)
-      .send({ message: "이미 추가된 회원입니다." });
+    return res.status(400).send({ message: "이미 추가된 회원입니다." });
   }
 
   await user
     .findOne({
-
       where: {
         id: userId,
       },
@@ -64,7 +60,7 @@ module.exports = async (req, res) => {
                   // console.log(selection)
                   delete friend.password;
                   res.status(200).send({
-                    message: `${userId}번 유저를 ${dailyCardId}번 카드에 추가했습니다.`,
+                    message: `${friend.username} 유저를 카드에 추가했습니다.`,
                     friendInfo: friend,
                     detailDailyInfo: selection.type,
                     dailyCardInfo: dailyCard,
@@ -73,7 +69,6 @@ module.exports = async (req, res) => {
                 });
             });
         });
-
     })
     .catch((error) =>
       res.status(400).send({ message: "회원을 추가할 수 없습니다." })
