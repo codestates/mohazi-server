@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.JSON
       },
       memo: {
-        type: Sequelize.JSON
+        type: Sequelize.STRING
       },
       type: {
         type: Sequelize.JSON

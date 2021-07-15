@@ -857,7 +857,6 @@ module.exports = async (req, res) => {
               road_address_name: sightLists[i].road_address_name,
               x: sightLists[i].x,
               y: sightLists[i].y,
-              memo: ""
             },
           });
           continue;
