@@ -11,11 +11,13 @@ module.exports = {
         date: req.body.date,
       })
       .then((cardInfo) => {
-        console.log(cardInfo);
+        // console.log(cardInfo);
         selection
           .create({
             dailyCards_id: cardInfo.dataValues.id,
+            admin: cardInfo.dataValues.admin,
             date: cardInfo.dataValues.date,
+            photo: cardInfo.dataValues.photo,
             memo: "",
             type: selections,
           })
