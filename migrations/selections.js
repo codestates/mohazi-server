@@ -11,20 +11,20 @@ module.exports = {
       dailyCards_id: {
         type: Sequelize.INTEGER
       },
-      memo: {
-        type: Sequelize.STRING
-      },
-      type: {
-        type: Sequelize.JSON
-      },
-      type_id: {
+      admin: {
         type: Sequelize.INTEGER
-      },
-      photo: {
-        type: Sequelize.STRING
       },
       date: {
         type: Sequelize.STRING
+      },
+      photo: {
+        type: Sequelize.JSON
+      },
+      memo: {
+        type: Sequelize.JSON
+      },
+      type: {
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,

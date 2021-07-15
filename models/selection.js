@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   };
   selection.init({
     dailyCards_id: DataTypes.INTEGER,
-    memo: DataTypes.STRING,
+    admin: DataTypes.INTEGER,
+    date: DataTypes.STRING,
+    photo: DataTypes.JSON,
+    memo: DataTypes.JSON,
     type: DataTypes.JSON,
-    type_id: DataTypes.INTEGER,
-    photo: DataTypes.STRING,
-    date: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'selection',
