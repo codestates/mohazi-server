@@ -2,6 +2,9 @@ const s3 = require('../../config/s3');
 
 module.exports = {
   put: async (req, res) => {
+
+    console.log('req = ' , req.body);
+ 
         s3.deleteObject({
           Bucket : 'mohazig',
           Key: req.body.key
