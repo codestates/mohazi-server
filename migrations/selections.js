@@ -11,6 +11,9 @@ module.exports = {
       dailyCards_id: {
         type: Sequelize.INTEGER
       },
+      date: {
+        type: Sequelize.STRING
+      },
       memo: {
         type: Sequelize.JSON
       },

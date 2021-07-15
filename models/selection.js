@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   selection.init({
     dailyCards_id: DataTypes.INTEGER,
+    date: DataTypes.STRING,
     memo: DataTypes.JSON,
     type: DataTypes.JSON,
   }, {
