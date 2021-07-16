@@ -1,5 +1,9 @@
 const { user } = require("../../models");
 
+// 이미 존재하는 이메일도 비밀번호 변경 시 다시 로그아웃 후 소셜로그인 할 때 DB에 새로 저장됨
+// 1. 
+
+
 module.exports = {
   post: async (req, res) => {
     await user
