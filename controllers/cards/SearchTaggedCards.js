@@ -37,11 +37,11 @@ module.exports = async (req, res) => {
             })
             .then((result) => {
               // console.log(result);
-              if (result.length === 0) {
-                return res.status(400).send({
-                  message: `${userId}번 유저가 태그된 카드가 없습니다.`,
-                });
-              }
+              // if (result.length === 0) {
+              //   res.status(400).send({
+              //     message: `${userId}번 유저가 태그된 카드가 없습니다.`,
+              //   });
+              // }
               res.status(200).send({
                 message: `${userId}번 유저가 태그된 카드 목록을 조회했습니다.`,
                 taggedCards: result,
