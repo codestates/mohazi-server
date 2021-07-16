@@ -37,13 +37,8 @@ module.exports = async (req, res) => {
             })
             .then((result) => {
               // console.log(result);
-              // if (result.length === 0) {
-              //   res.status(400).send({
-              //     message: `${userId}번 유저가 태그된 카드가 없습니다.`,
-              //   });
-              // }
               res.status(200).send({
-                message: `${userId}번 유저가 태그된 카드 목록을 조회했습니다.`,
+                message: `${admin.username} 유저가 태그된 카드 목록을 조회했습니다.`,
                 taggedCards: result,
               });
             });
@@ -51,10 +46,7 @@ module.exports = async (req, res) => {
     })
     .catch((err) => {
       res.status(400).send({
-        message: `해당 유저가 존재하지 않습니다.`,
+        message: `태그된 카드 목록을 조회할 수 없습니다.`,
       });
     });
 };
-
-// /signup
-// 1. 유저네임 한글도 가능하도록 구체화

@@ -9,7 +9,7 @@ module.exports = {
     await user.findAll({
       where: {
         email: {
-          [Op.like] : `%${email}%`
+          [Op.like]: `%${email}%`,
         }
       }
     }).then(users => {
