@@ -57,6 +57,7 @@ module.exports = async (req, res) => {
                   },
                 })
                 .then((mySelections) => {
+                  // console.log("내가 등록한 것", mySelections)
                   selection
                     .findAll({
                       raw: true,
@@ -69,7 +70,6 @@ module.exports = async (req, res) => {
                     .then((taggedSelections) => {
                       res.status(200).send({
                         message: `${admin.username} 유저의 정보를 조회했습니다.`,
-                        // userInfo: admin,
                         userInfo: {
                           id: admin.id,
                           email: admin.email,
@@ -77,8 +77,6 @@ module.exports = async (req, res) => {
                           photo: admin.photo,
                           description: admin.description,
                         },
-                        // myCards: myCardsID,
-                        // taggedCards: taggedCardsID,
                         myCardsInfo: mySelections,
                         taggedCardsInfo: taggedSelections,
                       });
