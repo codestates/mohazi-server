@@ -44,6 +44,7 @@ module.exports = async (req, res) => {
                   date: selection.date,
                   photo: selection.photo,
                   memo: selection.memo,
+                  admin: selection.admin,
                   type: selection.type,
                   friends: friends.data.friendsInfo,
               }});
