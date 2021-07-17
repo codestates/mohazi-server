@@ -15,7 +15,6 @@ module.exports = async (req, res) => {
       {
         where: {
           dailyCards_id: dailycardId,
-          admin: userId,
         },
       }
     )
@@ -30,7 +29,6 @@ module.exports = async (req, res) => {
           {
             where: {
               id: dailycardId,
-              admin: userId,
             },
           }
         )
