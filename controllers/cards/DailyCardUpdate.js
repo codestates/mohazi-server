@@ -1,7 +1,7 @@
 const { selection, dailyCard } = require("../../models");
 
 module.exports = async (req, res) => {
-  const { userId, dailycardId, memo, photo, date } = req.body;
+  const { dailycardId, memo, photo, date } = req.body;
 
   // console.log("request=", req.body);
 
@@ -15,7 +15,6 @@ module.exports = async (req, res) => {
       {
         where: {
           dailyCards_id: dailycardId,
-          // admin: userId,
         },
       }
     )
@@ -30,7 +29,6 @@ module.exports = async (req, res) => {
           {
             where: {
               id: dailycardId,
-              // admin: userId,
             },
           }
         )
