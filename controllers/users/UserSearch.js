@@ -3,13 +3,14 @@ const { Op } = require('sequelize')
 
 module.exports = {
   get: async (req, res) => {
-    const { email } = req.body;
+    const { email, myEmail } = req.body;
     // console.log(req.query);
     //console.log('email', email);
     await user.findAll({
       where: {
         email: {
           [Op.like]: `%${email}%`,
+          // [Op.notLike]: `%${myEmail}%`
         }
       }
     }).then(users => {

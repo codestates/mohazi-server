@@ -832,9 +832,9 @@ module.exports = async (req, res) => {
 
     await axios({
       method: "get",
-      url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=1`,
+      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=1`,
       // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=2`,
-      // url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=3`,
+      url: `https://dapi.kakao.com/v2/local/search/keyword.json?query=${deco}&category_group_code=CE7&page=3`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.KAKAO_MAP_RESTAPI_KEY}`,
