@@ -1,56 +1,78 @@
 const { user, user_daily, selection, dailyCard } = require("../../models");
-
-// 회원탈퇴의 경우, 내가 만든 카드, 그 카드에 태그된 친구들 다 삭제돼야 함
-// user, user_daily, selection, dailyCard table 필요
+const { Op } = require("sequelize");
 
 module.exports = {
   delete: async (req, res) => {
     const { userId } = req.body;
 
-    await user_daily
-      .destroy({
+    await dailyCard
+      .findAll({
+        raw: true,
         where: {
-          user_id: userId,
+          admin: userId,
         },
       })
-      .then((rel) => {
-        selection
+      .then((cards) => {
+        // console.log("41번 카드들 ", cards);
+        return cards.map((el) => el.id);
+      })
+      .then((IDs) => {
+        // console.log(IDs);
+        user_daily
           .destroy({
             where: {
-              admin: userId,
+              user_id: userId,
             },
           })
-          .then((selection) => {
-            dailyCard
+          .then((isAdmin) => {
+            user_daily
               .destroy({
                 where: {
-                  admin: userId,
+                  dailyCards_id: {
+                    [Op.or]: IDs,
+                  },
                 },
               })
-              .then((card) => {
-                user
+              .then((isCard) => {
+                selection
                   .destroy({
                     where: {
-                      id: userId,
+                      admin: userId,
                     },
                   })
-                  .then((admin) => {
-                    if (admin) {
-                      return res.status(200).send({
-                        message: "성공적으로 회원탈퇴 되었습니다.",
+                  .then((selection) => {
+                    dailyCard
+                      .destroy({
+                        where: {
+                          admin: userId,
+                        },
+                      })
+                      .then((cards) => {
+                        user
+                          .destroy({
+                            where: {
+                              id: userId,
+                            },
+                          })
+                          .then((admin) => {
+                            if (admin) {
+                              return res
+                                .status(200)
+                                .send({
+                                  message: "회원탈퇴가 완료되었습니다.",
+                                });
+                            }
+                            res
+                              .status(400)
+                              .send({ message: "회원탈퇴를 할 수 없습니다." });
+                          });
                       });
-                    }
-                    res
-                      .status(400)
-                      .send({ message: "유효하지 않은 유저입니다." });
                   });
               });
           });
       })
       .catch((err) => {
-        res.status(401).send({
-          err: "세션이 만료되었습니다.",
-        });
+        res.status(400).send("ERRRRRRRRRRR");
       });
   },
 };

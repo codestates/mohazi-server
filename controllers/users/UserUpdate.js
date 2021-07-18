@@ -17,6 +17,7 @@ module.exports = {
     await user
       .findOne({ where: { id: userId } })
       .then((res) => {
+        // console.log(res)
         const prevPhoto = res.dataValues.photo;
 
         if (photo !== prevPhoto) {
@@ -52,7 +53,7 @@ module.exports = {
               }
             )
             .then((userInfo) => {
-              console.log(userInfo);
+              // console.log(userInfo);
               return res.status(200).send({
                 message: "성공적으로 정보를 바꾸었습니다.",
               });
@@ -77,7 +78,7 @@ module.exports = {
               }
             )
             .then((userInfo) => {
-              console.log(userInfo);
+              // console.log(userInfo);
               return res.status(200).send({
                 message: "성공적으로 정보를 바꾸었습니다.",
               });
