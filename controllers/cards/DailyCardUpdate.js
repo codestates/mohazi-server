@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
       {
         where: {
           dailyCards_id: dailycardId,
-          admin: userId,
+          // admin: userId,
         },
       }
     )
@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
           {
             where: {
               id: dailycardId,
-              admin: userId,
+              // admin: userId,
             },
           }
         )
@@ -40,7 +40,10 @@ module.exports = async (req, res) => {
               .status(200)
               .send({ message: "카드 수정이 완료되었습니다." });
           }
-          res.status(400).send({ message: "수정 권한이 없습니다." });
+          res.status(400).send({ message: "카드를 수정할 수 없습니다." });
         });
-    });
+    })
+    .catch(err => {
+      res.status(400).send({ message: "카드를 수정할 수 없습니다." })
+    })
 };
