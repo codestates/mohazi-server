@@ -2,9 +2,6 @@ const { user_daily, dailyCard, selection } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
-
-    console.log('a = ', req.body)
-
     const { selections } = req.body;
     await dailyCard
       .create({
@@ -13,7 +10,6 @@ module.exports = {
         date: req.body.date,
       })
       .then((cardInfo) => {
-        console.log('card = ', cardInfo);
         selection
           .create({
             dailyCards_id: cardInfo.dataValues.id,

@@ -3,7 +3,7 @@ const { user } = require("../../models");
 module.exports = {
   post: async (req, res) => {
     const { email, password, name } = req.body;
-    
+
     await user
       .findOne({
         where: {
@@ -29,7 +29,6 @@ module.exports = {
                   },
                 })
                 .then((result) => {
-                  // console.log(result);
                   res.status(200).send({
                     message: "소셜 로그인에 성공했습니다.",
                     userInfo: {

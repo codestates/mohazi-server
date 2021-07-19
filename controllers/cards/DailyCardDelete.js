@@ -1,8 +1,7 @@
-// dailyCard, user_daily, selection 세 곳에서 삭제해야 함.
 const { dailyCard, user_daily, selection } = require("../../models");
 
 module.exports = async (req, res) => {
-  console.log('id', req.body)
+  console.log("id", req.body);
   await user_daily
     .destroy({
       where: {

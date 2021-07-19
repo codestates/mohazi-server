@@ -3,8 +3,6 @@ const { selection, dailyCard } = require("../../models");
 module.exports = async (req, res) => {
   const { dailycardId, memo, photo, date } = req.body;
 
-  // console.log("request=", req.body);
-
   await selection
     .update(
       {
@@ -19,7 +17,6 @@ module.exports = async (req, res) => {
       }
     )
     .then((updateInfo) => {
-      // console.log(updateInfo[0]);
       dailyCard
         .update(
           {
@@ -41,7 +38,7 @@ module.exports = async (req, res) => {
           res.status(400).send({ message: "카드를 수정할 수 없습니다." });
         });
     })
-    .catch(err => {
-      res.status(400).send({ message: "카드를 수정할 수 없습니다." })
-    })
+    .catch((err) => {
+      res.status(400).send({ message: "카드를 수정할 수 없습니다." });
+    });
 };

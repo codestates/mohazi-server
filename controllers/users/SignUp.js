@@ -1,4 +1,4 @@
-const { user, user_daily } = require("../../models");
+const { user } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
