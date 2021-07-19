@@ -1,4 +1,3 @@
-// 해당 card에 어떤 장소들이 들어갔는지 찾는 controller
 const { dailyCard, selection } = require("../../models");
 
 module.exports = async (req, res) => {

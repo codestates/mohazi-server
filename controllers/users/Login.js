@@ -2,7 +2,6 @@ const { user, user_daily } = require("../../models");
 
 module.exports = {
   post: async (req, res) => {
-    // console.log(req)
     await user
       .findOne({
         where: {
@@ -26,7 +25,6 @@ module.exports = {
             } else {
               req.session.save(function () {
                 req.session.userId = admin.id;
-                // console.log(req.session)
                 res.status(200).send({
                   userinfo: {
                     id: admin.id,

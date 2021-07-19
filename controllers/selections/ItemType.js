@@ -1,15 +1,7 @@
 const { cafe, exhibition, market, restaurant, sight } = require("../../models");
 const { Op } = require("sequelize");
 
-// rect[0, 1, 2, 3] 들어오고
-// 카테고리, 키워드 들어왔을 때
-// 해당 좌표인근 카테고리 목록들 return
-// 좌표인근 => DB 에 저장돼 있는 x, y좌표를 활용
-// x : rect[0] ~ x ~ rect[2]
-// y : rect[1] ~ y ~ rect[3]
-
 module.exports = async (req, res) => {
-  // console.log(req.body)
   if (req.body.itemType === "CE7") {
     await cafe
       .findAll({
@@ -24,7 +16,6 @@ module.exports = async (req, res) => {
         },
       })
       .then((results) => {
-        // console.log(results)
         res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
@@ -43,7 +34,6 @@ module.exports = async (req, res) => {
         },
       })
       .then((results) => {
-        // console.log(results)
         res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
@@ -62,7 +52,6 @@ module.exports = async (req, res) => {
         },
       })
       .then((results) => {
-        // console.log(results)
         res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
@@ -81,7 +70,6 @@ module.exports = async (req, res) => {
         },
       })
       .then((results) => {
-        // console.log(results)
         res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));
@@ -100,7 +88,6 @@ module.exports = async (req, res) => {
         },
       })
       .then((results) => {
-        // console.log(results)
         res.status(200).send({ items: results });
       })
       .catch((err) => res.status(400).send(err));

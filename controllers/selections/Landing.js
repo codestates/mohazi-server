@@ -3,7 +3,6 @@ const { Op } = require("sequelize");
 
 module.exports = {
   get: async (req, res) => {
-    // console.log(req)
     await cafe
       .findAll({
         where: {
@@ -58,7 +57,9 @@ module.exports = {
                               for (let s in sight) {
                                 s = Math.floor(Math.random() * sight.length);
                                 for (let r in restaurant) {
-                                  r = Math.floor(Math.random() * restaurant.length);
+                                  r = Math.floor(
+                                    Math.random() * restaurant.length
+                                  );
                                   return res.status(200).send({
                                     recommendations: [
                                       cafe[c],

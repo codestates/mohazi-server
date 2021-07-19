@@ -13,11 +13,9 @@ module.exports = {
         },
       })
       .then((cards) => {
-        // console.log("41번 카드들 ", cards);
         return cards.map((el) => el.id);
       })
       .then((IDs) => {
-        // console.log(IDs);
         user_daily
           .destroy({
             where: {
@@ -56,11 +54,9 @@ module.exports = {
                           })
                           .then((admin) => {
                             if (admin) {
-                              return res
-                                .status(200)
-                                .send({
-                                  message: "회원탈퇴가 완료되었습니다.",
-                                });
+                              return res.status(200).send({
+                                message: "회원탈퇴가 완료되었습니다.",
+                              });
                             }
                             res
                               .status(400)

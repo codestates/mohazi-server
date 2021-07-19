@@ -3,7 +3,6 @@ const axios = require("axios");
 require("dotenv").config();
 
 module.exports = async (req, res) => {
-  // console.log(req)
   const dong = [
     "청운효자동",
     "사직동",
@@ -841,7 +840,6 @@ module.exports = async (req, res) => {
       },
     })
       .then((response) => {
-        // console.log(response.data);
         const cafeLists = response.data.documents;
         for (let i = 0; i < cafeLists.length; i++) {
           cafe.findOrCreate({

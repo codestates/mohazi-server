@@ -1,14 +1,3 @@
-// /mypage에 들어갔을 때 필요한 정보들
-// user정보, 해당 user가 갖고 있는 카드들, 해당 user가 tag된 카드들
-
-// TODO : /mypage에서 selections도 보이도록
-// 현재 상황 : 내 정보, 내가 등록한 카드, 내가 태그된 카드들이 보임
-// 1. 내가 등록한 카드들의 selections를 뽑아야 함
-// 2. 내가 등록된 카드들의 selections도 뽑아야 함
-// 3. /searchselections 활용
-
-// 현재 상황 : 내가 등록한 카드의 ID 및 Selections / 태그된 카드의 ID 및 Selections 나옴
-// 된건가?
 const { user, dailyCard, selection } = require("../../models");
 const axios = require("axios");
 const { Op } = require("sequelize");
@@ -16,7 +5,6 @@ const { Op } = require("sequelize");
 module.exports = async (req, res) => {
   const { userId } = req.body;
 
-  //console.log('여기', userId)
   await user
     .findOne({
       where: {
@@ -35,7 +23,6 @@ module.exports = async (req, res) => {
           return cards.map((el) => el.id);
         })
         .then((myCardsID) => {
-          // console.log(myCardsID)
           axios
             .get(`https://api.mohazi.site/searchtaggedcards`, {
               params: {
@@ -43,7 +30,6 @@ module.exports = async (req, res) => {
               },
             })
             .then((tagged) => {
-              // console.log(tagged)
               return tagged.data.taggedCards.map((el) => el.id);
             })
             .then((taggedCardsID) => {
@@ -57,7 +43,6 @@ module.exports = async (req, res) => {
                   },
                 })
                 .then((mySelections) => {
-                  // console.log("내가 등록한 것", mySelections)
                   selection
                     .findAll({
                       raw: true,

@@ -18,11 +18,9 @@ module.exports = async (req, res) => {
           },
         })
         .then((cards) => {
-          // console.log(cards);
           return cards.map((el) => el.dailyCards_id);
         })
         .then((cardIDs) => {
-          // console.log(cardIDs);
           dailyCard
             .findAll({
               raw: true,
@@ -36,7 +34,6 @@ module.exports = async (req, res) => {
               },
             })
             .then((result) => {
-              // console.log(result);
               res.status(200).send({
                 message: `${admin.username} 유저가 태그된 카드 목록을 조회했습니다.`,
                 taggedCards: result,
